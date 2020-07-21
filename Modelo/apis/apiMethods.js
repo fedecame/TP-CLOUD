@@ -53,7 +53,6 @@ artists.route('/artists/:artistId')
         errorHandler(err, req, res);
         return;
     }
-    console.log("Se guarda Unqfy desde /artists/<artistID> PUT");
     saveUNQfy(unqfy);
     unqfy = getUNQfy();
     res.status(200);
@@ -69,7 +68,6 @@ artists.route('/artists/:artistId')
         errorHandler(err, req, res);
         return;
     }
-    console.log("Se guarda Unqfy desde /artists/<artistID> DELETE");
     saveUNQfy(unqfy);
     unqfy = getUNQfy();
     res.status(204);
@@ -77,7 +75,6 @@ artists.route('/artists/:artistId')
         success: true
     })
 })
-
 //ENDPOINT /artists/
 artists.route('/artists')
 .get((req, res) => {
@@ -113,7 +110,6 @@ artists.route('/artists')
         errorHandler(err, req, res);
         return;
     }
-    console.log("Se guarda Unqfy desde /artists/ POST");
     saveUNQfy(unqfy);
     unqfy = getUNQfy();
     res.status(201);
@@ -155,7 +151,6 @@ albums.route('/albums/:albumId')
     }
 
     const tmpAlbum = unqfy.getAlbumById(albumId);
-    console.log("Se guarda Unqfy desde /albums/<albumId> PATCH");
     saveUNQfy(unqfy);
     unqfy = getUNQfy();
     res.status(200);
@@ -171,7 +166,6 @@ albums.route('/albums/:albumId')
         errorHandler(err, req, res);
         return;
     }
-    console.log("Se guarda Unqfy desde /albums/<albumId> DELETE");
     saveUNQfy(unqfy);
     unqfy = getUNQfy();
     res.status(204);
@@ -215,12 +209,11 @@ albums.route('/albums')
         if (err instanceof AlreadyExistsAlbumException){
             errorHandler(err, req, res);
         }else{
-            err = new ResourceNotFoundException();
+            const err = new ResourceNotFoundException();
             errorHandler(err, req, res);
         }
         return;
     }
-    console.log("Se guarda Unqfy desde /albums/ POST");
     saveUNQfy(unqfy);
     unqfy = getUNQfy();
     res.status(201);
@@ -244,7 +237,6 @@ tracks.route('/tracks')
         errorHandler(err, req, res);
         return;
     }
-    console.log("Se guarda Unqfy desde /tracks/ POST");
     saveUNQfy(unqfy);
     unqfy = getUNQfy();
     res.status(201);
@@ -326,7 +318,6 @@ playlists.route('/playlists/:playlistId')
         errorHandler(err, req, res);
         return;
     }
-    console.log("Se guarda Unqfy desde /playlists/<playlistId> DELETE");
     saveUNQfy(unqfy);
     unqfy = getUNQfy();
     res.status(204);
@@ -399,7 +390,6 @@ playlists.route('/playlists')
         errorHandler(err, req, res);
         return;
     }
-    console.log("Se guarda Unqfy desde /playlists/ POST");
     saveUNQfy(unqfy);
     unqfy = getUNQfy();
     res.status(201);
@@ -435,7 +425,6 @@ users.route('/users/:userId')
         errorHandler(err, req, res);
         return;
     }
-    console.log("Se guarda Unqfy desde /users/ PUT");
     saveUNQfy(unqfy);
     unqfy = getUNQfy();
     res.status(200);
@@ -472,7 +461,6 @@ users.route('/users')
         errorHandler(err, req, res);
         return;
     }
-    console.log("Se guarda Unqfy desde /users/ POST");
     saveUNQfy(unqfy);
     unqfy = getUNQfy();
     res.status(201);
@@ -512,7 +500,6 @@ users.route('/users/:userId/listenings')
         return;
     }
 
-    console.log("Se guarda Unqfy desde /users/:userId/listenings POST");
     saveUNQfy(unqfy);
     unqfy = getUNQfy();
     res.status(201);
